@@ -1,18 +1,17 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nginxfronend
+  name: replica-set-1
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      type: test
   template:
     metadata:
       labels:
-        app: frontend
-      name: myapp-pod
+        type: test
     spec:
       containers:
-        - image: nginx
-          name: nginx-contioner
+      - name: busybox
+        image: busybox
